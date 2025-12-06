@@ -1,0 +1,76 @@
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  animation: fall linear infinite;
+}
+
+.confetti-piece.circle {
+  border-radius: 50%;
+}
+
+.confetti-piece.square {
+  transform-style: preserve-3d;
+}
+
+@keyframes fall {
+  0% {
+    top: -20px;
+    opacity: 1;
+    transform: translateX(0) rotateZ(0deg);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateX(10px) rotateZ(90deg);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translateX(-10px) rotateZ(180deg);
+  }
+
+  75% {
+    opacity: 0.6;
+    transform: translateX(10px) rotateZ(270deg);
+  }
+
+  100% {
+    top: 100vh;
+    opacity: 0;
+    transform: translateX(-10px) rotateZ(360deg);
+  }
+}
+
+/* Add sparkle effect */
+.confetti-piece::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
