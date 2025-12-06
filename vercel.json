@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+      {
+        "source": "/countdown",
+        "destination": "/countdown/index.html"
+      },
+      {
+        "source": "/countdown/:path*",
+        "destination": "/countdown/:path*"
+      }
+    ]
+  }
